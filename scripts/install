@@ -54,7 +54,7 @@ ynh_script_progression --message="Making install..." --weight=1
 
 # Install lemmy-ui
 pushd $install_dir/build-lemmy-ui
-	./docker-image-extract dessalines/lemmy-ui:$(ynh_app_upstream_version)
+	./docker-image-extract dessalines/lemmy-ui:$(ynh_app_upstream_version)-linux-$YNH_ARCH
 popd
 mkdir -p "$install_dir/lemmy-ui/"
 rsync -a "$install_dir/build-lemmy-ui/output/app/" "$install_dir/lemmy-ui/"
