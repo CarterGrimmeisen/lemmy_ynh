@@ -62,7 +62,7 @@ ynh_secure_remove --file="$install_dir/build-lemmy-ui"
 
 # Install lemmy
 pushd $install_dir/build-lemmy
-	./docker-image-extract dessalines/lemmy:$(ynh_app_upstream_version)
+	./docker-image-extract dessalines/lemmy:$(ynh_app_upstream_version)-linux-$YNH_ARCH
 popd
 mkdir -p "$install_dir/lemmy/"
 mv -f "$install_dir/build-lemmy/output/app/lemmy" "$install_dir/lemmy/lemmy"
