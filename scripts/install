@@ -54,7 +54,7 @@ ynh_script_progression --message="Making install..." --weight=1
 
 # Install lemmy-ui
 pushd $install_dir/build-lemmy-ui
-	./docker-image-extract dessalines/lemmy-ui:$(ynh_app_upstream_version)-linux-$YNH_ARCH
+	./docker-image-extract -p $YNH_ARCH dessalines/lemmy-ui:$(ynh_app_upstream_version)-linux-$YNH_ARCH
 popd
 mkdir -p "$install_dir/lemmy-ui/"
 rsync -a "$install_dir/build-lemmy-ui/output/app/" "$install_dir/lemmy-ui/"
@@ -62,7 +62,7 @@ ynh_secure_remove --file="$install_dir/build-lemmy-ui"
 
 # Install lemmy
 pushd $install_dir/build-lemmy
-	./docker-image-extract dessalines/lemmy:$(ynh_app_upstream_version)-linux-$YNH_ARCH
+	./docker-image-extract -p $YNH_ARCH dessalines/lemmy:$(ynh_app_upstream_version)-linux-$YNH_ARCH
 popd
 mkdir -p "$install_dir/lemmy/"
 mv -f "$install_dir/build-lemmy/output/app/lemmy" "$install_dir/lemmy/lemmy"
